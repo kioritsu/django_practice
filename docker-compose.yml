@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=webapp_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000 --insecure
+    volumes:
+      - ./webapp:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
