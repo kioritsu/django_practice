@@ -1,5 +1,3 @@
-previewsEnabled: true
-
 databases:
   - name: my_web_app_db
     region: singapore
