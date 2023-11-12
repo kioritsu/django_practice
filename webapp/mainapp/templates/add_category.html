@@ -1,0 +1,59 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+    カテゴリーの追加
+</div>
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    支払方法    
+    <br>
+    <input type="text" name="payment">
+    <input type="submit" value="追加">
+    <ul>
+      {% for payment in payments%}
+      <li>{{payment.name}}</li>
+      {% endfor %}
+    </ul>
+    
+    収入源
+    <br>
+    <input type="text" name="income">
+    <input type="submit" value="追加">
+    <ul>
+      {% for income in incomes%}
+      <li>{{income.name}}</li>
+      {% endfor %}
+    </ul>
+
+    カテゴリー
+    <br>
+    <input type="text" name="big_category">
+    <input type="submit" value="追加">
+    <br>
+    <input type="text" name="small_category">
+    <select name="small_category_base">
+      {% for big_category in big_categories.keys %}
+          <option>{{big_category.name}}</option>
+      {% endfor %}
+  </select>
+    <input type="submit" value="追加">
+    <ul>
+      {% for big_category,smallcategories in big_categories.items%}
+      <li>{{big_category.name}}</li>
+      <ul>
+        {% for smallcategory in smallcategories%}
+        <li>{{smallcategory.name}}</li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </ul>
+</form>
+
+<div>
+
+</div>
+
+{% endblock %}  

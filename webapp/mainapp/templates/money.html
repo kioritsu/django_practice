@@ -1,0 +1,55 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+    家計簿<a href="{% url 'add_category' %}">カテゴリの追加</a>
+</div>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div>
+        <label>
+          <input type="radio" name="balance" value="False" checked="">
+          <span>
+            支出
+          </span>
+        </label>
+        <label>
+          <input type="radio" name="balance" value="True" >
+          <span>
+            収入
+          </span>
+        </label>
+    </div>
+    <input type="text" name="price" placeholder="金額">
+    <br>
+    <input type="text" name="memo" placeholder="メモ">
+    <br>
+    <input type="date" name="date" value="{{today}}">
+    <br>
+    <select name="method">
+        {% for method in methods %}
+            <option>{{method.name}}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <select name="small_category">
+      {% for small_category in small_categories %}
+          <option>{{small_category.name}}</option>
+      {% endfor %}
+    </select>
+    <br>
+    メンバー
+    {% for member in members %}
+    <input type="checkbox" name="member" value="{{member.id}}">
+    <span>{{member.name}}</span>
+    {% endfor %}
+    <br>
+    <input type="submit" value="送信">
+</form>
+
+<div>
+
+</div>
+
+{% endblock %}  
