@@ -1,5 +1,5 @@
 Django==4.1
 requests
 psycopg2
-python
+python>=3.10
 gunicorn
