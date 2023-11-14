@@ -10,8 +10,8 @@ WORKDIR /code
 ADD requirements.txt /code/
 
 # requirements.txtを基にpip installする
-RUN pip install -r requirements.txt
 RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 COPY . /code/
 
 # Djangoの準備
