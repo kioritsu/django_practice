@@ -1,3 +1,5 @@
 Django==4.1
 requests
 psycopg2
+python==3.9
+gunicorn==20.1.0
