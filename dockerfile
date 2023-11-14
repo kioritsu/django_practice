@@ -4,7 +4,7 @@ ARG DATABASE_URL DJANGO_SETTINGS_MODULE SECRET_KEY WEB_CONCURRENCY
 ENV PYTHONUNBUFFERED=1 PATH=/root/.local/bin:$PATH
 
 # ワークディレクトリの設定
-WORKDIR /code
+WORKDIR /code/webapp
 
 # requirements.txtを/code/にコピーする
 ADD requirements.txt /code/
